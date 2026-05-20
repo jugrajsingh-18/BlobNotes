@@ -1,5 +1,6 @@
 import { CheckCircle2, Calendar, Bell, BarChart3 } from "lucide-react";
 import { Button } from "../components/ui/button";
+import { toast } from "sonner";
 
 export default function Home() {
   const features = [
@@ -52,11 +53,9 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button size="lg">
-              Start for Free
-            </Button>
+            
 
-            <Button variant="outline" size="lg">
+            <Button variant="outline" size="lg" onClick={()=>toast.message("Video available soon.")}>
               Watch Demo
             </Button>
           </div>
@@ -138,7 +137,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="border-t py-8 text-center text-sm text-muted-foreground">
-        © 2026 TaskFlow. Built for productivity.
+        © 2026 BlobNotes. Built for productivity.
       </footer>
     </div>
   );
