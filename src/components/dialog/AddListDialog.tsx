@@ -216,7 +216,7 @@ export function AddListDialog({ open, onOpenChange, onAdd, editingList }: AddLis
         {/* Folder */}
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <span style={{ fontSize: 13, color: "#64748b", minWidth: 110 }}>Folder</span>
-          <Select value={folder} onValueChange={setFolder}>
+          <Select value={folder} onValueChange={(value) => setFolder(value as FolderType)}>
             <SelectTrigger style={{ flex: 1 }}>
               <SelectValue />
             </SelectTrigger>
@@ -231,7 +231,7 @@ export function AddListDialog({ open, onOpenChange, onAdd, editingList }: AddLis
         {/* List Type */}
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <span style={{ fontSize: 13, color: "#64748b", minWidth: 110 }}>List Type</span>
-          <Select value={listType} onValueChange={setListType}>
+          <Select value={listType} onValueChange={(value) => setFolder(value as FolderType)}>
             <SelectTrigger style={{ flex: 1 }}>
               <SelectValue />
             </SelectTrigger>

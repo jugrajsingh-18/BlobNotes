@@ -65,6 +65,9 @@ export default function VerticalSection({
   }, [title]);
   const toggleTodo = (todoId: string) => {
     const response = markTodoComplete(ListId, subSectionId, todoId)
+    if(response.status==200){
+      toast.success("Todo completed successfully.")
+    }
 
   };
 
@@ -80,8 +83,12 @@ export default function VerticalSection({
       completedOrNot: false
     }
     const response = addTodo(ListId, subSectionId, todo)
-    setTask('')
+    if (response.status==200) {
+      setTask('')
     setShowInput(false)
+    toast.success('Todo added.')
+    }
+    
 
 
   }
@@ -100,6 +107,9 @@ export default function VerticalSection({
       subSectionId,
       newTitle
     );
+    if (response.status==200) {
+      toast.success("Subsection Updated successfully.")
+    }
 
 
     setEditTitle(false);
