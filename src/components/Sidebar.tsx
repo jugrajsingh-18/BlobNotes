@@ -14,7 +14,7 @@ import {
 import { AddListDialog } from "./dialog/AddListDialog";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import type { FolderType, SectionType, TodoSection, ViewType } from "../Types/UserAndTodo";
+import type { FolderType, SectionType, SubTodoSection, TodoSection, ViewType } from "../Types/UserAndTodo";
 import { toast } from "sonner";
 import {
   CheckSquare,
@@ -89,7 +89,49 @@ export function AppSidebar() {
     }
     setIsOpen(true);
   };
+
+ const validateDeleteList = () => {
+  const section =
+    currentUser?.TodoSectionArray.find(
+      (section: TodoSection) =>
+        section.id === ListId
+    );
+
+  if (!section) {
+    return {
+      status: 404,
+      Message: "Section not found.",
+    };
+  }
+
+  const hasPendingTodos =
+    section.subSections.some(
+      (subSection: SubTodoSection) =>
+        subSection.subSectionTodos.some(
+          (todo) =>
+            !todo.completedOrNot
+        )
+    );
+
+  if (hasPendingTodos) {
+    return {
+      status: 400,
+      Message:
+        "There are pending todos therefore cannot delete.",
+    };
+  }
+
+  return {
+    status: 200,
+    Message: "Can Delete.",
+  };
+};
   const DeleteList = (e:string,name:string)=>{
+    const Validate = validateDeleteList()
+    if(Validate.status==400){
+      toast.error(Validate.Message)
+      return;
+    }
     const response = deleteList(e)
     if(response.status==200){
       setLists((prev) =>

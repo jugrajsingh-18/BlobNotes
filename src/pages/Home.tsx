@@ -1,33 +1,25 @@
-import { CheckCircle2, Calendar, Bell, BarChart3 } from "lucide-react";
+import { CheckCircle2, Calendar } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { toast } from "sonner";
 
 export default function Home() {
+  const  handlWatchVideo = ()=>{
+    toast.message("Video comming soon")
+  }
   const features = [
     {
       icon: CheckCircle2,
       title: "Smart Task Management",
       description:
-        "Organize your tasks effortlessly with priorities, tags, and custom lists.",
+        "Organize your tasks effortlessly with list and board view type.",
     },
     {
       icon: Calendar,
-      title: "Plan Your Day",
+      title: "Add Descryption",
       description:
-        "Schedule tasks with calendars, reminders, and recurring events.",
+        "Add detail descryption to your todo.",
     },
-    {
-      icon: Bell,
-      title: "Never Miss Anything",
-      description:
-        "Get smart reminders exactly when you need them.",
-    },
-    {
-      icon: BarChart3,
-      title: "Track Productivity",
-      description:
-        "Visual insights and analytics to improve your daily workflow.",
-    },
+    
   ];
 
   return (
@@ -55,7 +47,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             
 
-            <Button variant="outline" size="lg" onClick={()=>toast.message("Video available soon.")}>
+            <Button variant="outline" size="lg" onClick={handlWatchVideo}>
               Watch Demo
             </Button>
           </div>
@@ -63,42 +55,7 @@ export default function Home() {
       </section>
 
       {/* Preview Card */}
-      <section className="container mx-auto px-4 mb-24">
-        <div className="mx-auto max-w-5xl rounded-3xl border bg-card p-8 shadow-2xl">
-          <div className="grid gap-4 md:grid-cols-3">
-            <div className="rounded-xl border p-4">
-              <p className="font-medium">Today</p>
-              <p className="text-sm text-muted-foreground mt-2">
-                ✓ Design homepage
-              </p>
-              <p className="text-sm text-muted-foreground">
-                ✓ Setup authentication
-              </p>
-              <p className="text-sm text-muted-foreground">
-                ○ Finish API integration
-              </p>
-            </div>
-
-            <div className="rounded-xl border p-4">
-              <p className="font-medium">Upcoming</p>
-              <p className="text-sm text-muted-foreground mt-2">
-                Team meeting
-              </p>
-              <p className="text-sm text-muted-foreground">
-                Product launch
-              </p>
-            </div>
-
-            <div className="rounded-xl border p-4">
-              <p className="font-medium">Progress</p>
-              <p className="text-3xl font-bold mt-4">78%</p>
-              <p className="text-sm text-muted-foreground">
-                Weekly completion
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+    
 
       {/* Features */}
       <section className="container mx-auto px-4 pb-24">
@@ -111,7 +68,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-">
           {features.map((feature, index) => {
             const Icon = feature.icon;
 

@@ -231,7 +231,7 @@ export function AddListDialog({ open, onOpenChange, onAdd, editingList }: AddLis
         {/* List Type */}
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <span style={{ fontSize: 13, color: "#64748b", minWidth: 110 }}>List Type</span>
-          <Select value={listType} onValueChange={(value) => setFolder(value as FolderType)}>
+          <Select value={listType} onValueChange={(value) => setListType(value as SectionType)}>
             <SelectTrigger style={{ flex: 1 }}>
               <SelectValue />
             </SelectTrigger>

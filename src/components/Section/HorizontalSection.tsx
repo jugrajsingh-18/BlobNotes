@@ -302,7 +302,6 @@ export default function HorizontalSection({
                   className="bg-white/70 rounded-xl px-3 py-2.5 shadow-sm border border-gray-100 flex items-start gap-2 opacity-70 cursor-pointer"
                   onClick={() => {
                     setSelectedTodo(todo);
-                    setDetailOpen(true);
                   }}
                 >
                   <input
@@ -311,7 +310,7 @@ export default function HorizontalSection({
                     onChange={() => toggleTodo(todo.id)}
                     className="w-4 h-4 mt-0.5 shrink-0 cursor-pointer"
                   />
-                  <p className="text-gray-500 text-sm line-through whitespace-pre-wrap break-words flex-1 min-w-0 leading-snug">
+                  <p className="text-gray-500 text-sm line-through whitespace-pre-wrap break-words flex-1 min-w-0 leading-snug" onClick={()=>setDetailOpen(true)}>
                     {todo.todoText}
                   </p>
                 </div>
