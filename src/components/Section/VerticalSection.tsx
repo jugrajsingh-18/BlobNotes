@@ -324,7 +324,7 @@ export default function VerticalSection({
 
           {showCompleted && (
             <div className="flex flex-col gap-3">
-              {completedTodos.map((todo, index) => (
+              {completedTodos.map((todo) => (
                 <>
                   <div
                     key={todo.id}
